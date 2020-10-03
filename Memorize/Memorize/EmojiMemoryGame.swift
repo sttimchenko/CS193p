@@ -6,38 +6,120 @@
 //  Copyright © 2020 Stanislav Timchenko. All rights reserved.
 //
 
-import Foundation
+import SwiftUI
 
-private let emojis = ["👻", "🎃", "🦸‍♂️", "🐵", "💩", "😇", "🤬", "🤡", "😻", "🤦‍♂️", "🐙", "🥑", "🔥", "🥳", "🤪", "🧐"]
-
-class EmojiMemoryGame {
-    private let model = EmojiMemoryGame.createMemoryGame()
+private struct ThemedEmojiGame: Hashable {
+    let themeName: String
+    let emojis: Array<String>
+    let amountOfCards: AmountOfCards
+    let themeColor: Color
     
-    //MARK: - Access to the Model
+    enum AmountOfCards {
+        case fixed, random
+    }
+}
+
+private let gameSets: Set = [
+    ThemedEmojiGame(
+        themeName: "Hallowen",
+        emojis: ["🎃", "👻", "🦸‍♂️", "🤡"],
+        amountOfCards: .fixed,
+        themeColor: Color.orange
+    ),
+    ThemedEmojiGame(
+        themeName: "New Year",
+        emojis: ["⛄️", "🎄", "🎅", "🎆"],
+        amountOfCards: .fixed,
+        themeColor: Color.green
+    ),
+    ThemedEmojiGame(
+        themeName: "Places",
+        emojis: ["🏯", "🗼", "🗽", "⛩️", "🎡", "🎢", "🛕", "🕌", "⛪", "🏝️", "🗻", "🏦"],
+        amountOfCards: .random,
+        themeColor: Color.gray
+    ),
+    ThemedEmojiGame(
+        themeName: "Flags",
+        emojis: ["🇨🇦", "🇨🇳", "🇩🇪"],
+        amountOfCards: .fixed,
+        themeColor: Color.red
+    ),
+    ThemedEmojiGame(
+        themeName: "Animals",
+        emojis: ["🐶", "🦊", "🐱", "🦁", "🐯", "🦄", "🐮", "🐷", "🐭", "🐹", "🐼", "🐨"],
+        amountOfCards: .random,
+        themeColor: Color.yellow
+    ),
+    ThemedEmojiGame(
+        themeName: "Food",
+        emojis: ["🥥", "🥑", "🧀", "🍕"],
+        amountOfCards: .fixed,
+        themeColor: Color.green
+    ),
+]
+
+class EmojiMemoryGame: ObservableObject {
+    private var chosenGameConfig: ThemedEmojiGame
+    @Published private var model: MemoryGame<String>
+    
+    init() {
+        let (chosenGameConfig, model) = EmojiMemoryGame.generateNewGame()
+        
+        self.chosenGameConfig = chosenGameConfig
+        self.model = model
+    }
+    
+    // MARK: - Access to the Model
     
     var cards: Array<MemoryGame<String>.Card> {
         model.cards
     }
     
-    //MARK: - Intent(s)
+    var themeColor: Color {
+        chosenGameConfig.themeColor
+    }
+    
+    var themeName: String {
+        chosenGameConfig.themeName
+    }
+    
+    var score: Int {
+        model.score
+    }
+    
+    // MARK: - Intent(s)
     
     func choose(card: MemoryGame<String>.Card) {
         model.choose(card: card)
     }
     
-    private static func createMemoryGame() -> MemoryGame<String> {
-        let numberOfPairsOfCards = Int.random(in: 2...5)
+    func newGame() {
+        let (chosenGameConfig, model) = EmojiMemoryGame.generateNewGame()
         
-        var emojisSubset = Set<String>()
+        self.chosenGameConfig = chosenGameConfig
+        self.model = model
+    }
+    
+    // TODO: - Move generation to the additional factories/providers
+    private static func generateNewGame() -> (ThemedEmojiGame, MemoryGame<String>) {
+        let randomGameConfig = gameSets.randomElement()!
         
-        while emojisSubset.count < numberOfPairsOfCards {
-            emojisSubset.insert(emojis.randomElement()!)
+        let gameEmojis: Array<String>
+        let numberOfPairOfCards: Int
+        
+        switch randomGameConfig.amountOfCards {
+        case .fixed:
+            gameEmojis = randomGameConfig.emojis
+            numberOfPairOfCards = gameEmojis.count
+        case .random:
+            gameEmojis = Array(randomGameConfig.emojis.shuffled())
+            numberOfPairOfCards = Int.random(in: 2..<min(gameEmojis.count, 5))
         }
         
-        let gameEmojis = Array(emojisSubset)
-        
-        return MemoryGame<String>(numberOfPairOfCards: numberOfPairsOfCards) { pairIndex in
+        let memoryGame = MemoryGame<String>(numberOfPairOfCards: numberOfPairOfCards) { pairIndex in
             return gameEmojis[pairIndex]
         }
+        
+        return (randomGameConfig, memoryGame)
     }
 }

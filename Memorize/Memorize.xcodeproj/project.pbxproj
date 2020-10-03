@@ -7,9 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8B04C81B251712D400086D62 /* Grid.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B04C81A251712D400086D62 /* Grid.swift */; };
+		8B27696825174454005C2B90 /* Array+Identifiable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B27696725174454005C2B90 /* Array+Identifiable.swift */; };
+		8B27696A251751FA005C2B90 /* Array+Only.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B276969251751FA005C2B90 /* Array+Only.swift */; };
+		8BB32FF5251719B3008A57A5 /* GridLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BB32FF4251719B3008A57A5 /* GridLayout.swift */; };
 		8BE723F7250A2F2500AEE6C9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE723F6250A2F2500AEE6C9 /* AppDelegate.swift */; };
 		8BE723F9250A2F2500AEE6C9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE723F8250A2F2500AEE6C9 /* SceneDelegate.swift */; };
-		8BE723FB250A2F2600AEE6C9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE723FA250A2F2600AEE6C9 /* ContentView.swift */; };
+		8BE723FB250A2F2600AEE6C9 /* EmojiMemoryGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE723FA250A2F2600AEE6C9 /* EmojiMemoryGameView.swift */; };
 		8BE723FD250A2F2700AEE6C9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE723FC250A2F2700AEE6C9 /* Assets.xcassets */; };
 		8BE72400250A2F2700AEE6C9 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8BE723FF250A2F2700AEE6C9 /* Preview Assets.xcassets */; };
 		8BE72403250A2F2700AEE6C9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8BE72401250A2F2700AEE6C9 /* LaunchScreen.storyboard */; };
@@ -18,10 +22,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		8B04C81A251712D400086D62 /* Grid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grid.swift; sourceTree = "<group>"; };
+		8B27696725174454005C2B90 /* Array+Identifiable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Identifiable.swift"; sourceTree = "<group>"; };
+		8B276969251751FA005C2B90 /* Array+Only.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Only.swift"; sourceTree = "<group>"; };
+		8BB32FF4251719B3008A57A5 /* GridLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GridLayout.swift; sourceTree = "<group>"; };
 		8BE723F3250A2F2500AEE6C9 /* Memorize.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Memorize.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8BE723F6250A2F2500AEE6C9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		8BE723F8250A2F2500AEE6C9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		8BE723FA250A2F2600AEE6C9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8BE723FA250A2F2600AEE6C9 /* EmojiMemoryGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmojiMemoryGameView.swift; sourceTree = "<group>"; };
 		8BE723FC250A2F2700AEE6C9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8BE723FF250A2F2700AEE6C9 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8BE72402250A2F2700AEE6C9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -62,9 +70,13 @@
 			children = (
 				8BE723F6250A2F2500AEE6C9 /* AppDelegate.swift */,
 				8BE723F8250A2F2500AEE6C9 /* SceneDelegate.swift */,
-				8BE723FA250A2F2600AEE6C9 /* ContentView.swift */,
-				8BE7240A250B7D3500AEE6C9 /* MemoryGame.swift */,
+				8B04C81A251712D400086D62 /* Grid.swift */,
+				8B27696725174454005C2B90 /* Array+Identifiable.swift */,
+				8BB32FF4251719B3008A57A5 /* GridLayout.swift */,
+				8BE723FA250A2F2600AEE6C9 /* EmojiMemoryGameView.swift */,
 				8BE7240C250B7F3200AEE6C9 /* EmojiMemoryGame.swift */,
+				8BE7240A250B7D3500AEE6C9 /* MemoryGame.swift */,
+				8B276969251751FA005C2B90 /* Array+Only.swift */,
 				8BE723FC250A2F2700AEE6C9 /* Assets.xcassets */,
 				8BE72401250A2F2700AEE6C9 /* LaunchScreen.storyboard */,
 				8BE72404250A2F2700AEE6C9 /* Info.plist */,
@@ -108,7 +120,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1170;
-				LastUpgradeCheck = 1170;
+				LastUpgradeCheck = 1200;
 				ORGANIZATIONNAME = "Stanislav Timchenko";
 				TargetAttributes = {
 					8BE723F2250A2F2500AEE6C9 = {
@@ -155,8 +167,12 @@
 				8BE723F7250A2F2500AEE6C9 /* AppDelegate.swift in Sources */,
 				8BE723F9250A2F2500AEE6C9 /* SceneDelegate.swift in Sources */,
 				8BE7240B250B7D3500AEE6C9 /* MemoryGame.swift in Sources */,
-				8BE723FB250A2F2600AEE6C9 /* ContentView.swift in Sources */,
+				8B27696A251751FA005C2B90 /* Array+Only.swift in Sources */,
+				8BE723FB250A2F2600AEE6C9 /* EmojiMemoryGameView.swift in Sources */,
 				8BE7240D250B7F3300AEE6C9 /* EmojiMemoryGame.swift in Sources */,
+				8B27696825174454005C2B90 /* Array+Identifiable.swift in Sources */,
+				8BB32FF5251719B3008A57A5 /* GridLayout.swift in Sources */,
+				8B04C81B251712D400086D62 /* Grid.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,6 +216,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
@@ -260,6 +277,7 @@
 				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
 				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
